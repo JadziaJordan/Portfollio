@@ -13,7 +13,7 @@ public partial class MathCalculation
     public string? FirebaseUuid { get; set; }
 
     // Private constructor to prevent direct instantiation
-    private MathCalculation() { }
+    public MathCalculation() { }
 
     public static MathCalculation Create(decimal? firstNumber, decimal? secondNumber, int? operation, decimal? result, string? firebaseUuid)
     {

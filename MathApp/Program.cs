@@ -13,8 +13,7 @@ builder.Services.AddSession(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<MathDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("Math_DBConnectin")));
+
 
 var app = builder.Build();
 

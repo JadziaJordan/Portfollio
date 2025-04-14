@@ -166,6 +166,8 @@ C:\Users\Jadzia Jordan\source\repos\Year Three\MathAPI\obj\Debug\net8.0\refint\M
 C:\Users\Jadzia Jordan\source\repos\Year Three\MathAPI\obj\Debug\net8.0\MathAPI.pdb
 C:\Users\Jadzia Jordan\source\repos\Year Three\MathAPI\obj\Debug\net8.0\MathAPI.genruntimeconfig.cache
 C:\Users\Jadzia Jordan\source\repos\Year Three\MathAPI\obj\Debug\net8.0\ref\MathAPI.dll
-C:\Users\Jadzia Jordan\source\repos\Year Three\MathAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll
 C:\Users\Jadzia Jordan\source\repos\Year Three\MathAPI\bin\Debug\net8.0\MathAPI.xml
 C:\Users\Jadzia Jordan\source\repos\Year Three\MathAPI\obj\Debug\net8.0\MathAPI.xml
+C:\Users\Jadzia Jordan\source\repos\Year Three\MathAPI\bin\Debug\net8.0\Firebase.Auth.dll
+C:\Users\Jadzia Jordan\source\repos\Year Three\MathAPI\bin\Debug\net8.0\System.ServiceModel.dll
+C:\Users\Jadzia Jordan\source\repos\Year Three\MathAPI\bin\Debug\net8.0\Newtonsoft.Json.dll

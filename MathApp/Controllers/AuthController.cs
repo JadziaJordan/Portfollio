@@ -1,97 +1,80 @@
-
-using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using MathApp.Models;
+using System.Text;
 using Firebase.Auth;
+using MathApp.Models;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 
-namespace MathApp.Controllers;
-public class AuthController : Controller
-{
-    FirebaseAuthProvider auth;
 
-    public AuthController()
+namespace MathApp.Controllers
+{
+    public class AuthController : Controller
     {
-        auth = new FirebaseAuthProvider(new FirebaseConfig(Environment.GetEnvironmentVariable("FireBaseMathApp")));
-      // auth = new FirebaseAuthProvider(new FirebaseConfig("AIzaSyCVLiep8BoFRtccwXvNyIgujlMb3wUfG_w"));
-    }
-
-    [HttpGet]
-public IActionResult Register()
-{
-    return View();
-}
-
-[HttpPost]
-public async Task<IActionResult> Register(LoginModel login)
-{
-    try
-    {
-        await auth.CreateUserWithEmailAndPasswordAsync(login.Email, login.Password);
-
-        var fbAuthLink = await auth.SignInWithEmailAndPasswordAsync(login.Email, login.Password);
-        string currentUserId = fbAuthLink.User.LocalId;
-
-        if (currentUserId != null)
-        {
-            HttpContext.Session.SetString("currentUser", currentUserId);
-            return RedirectToAction("Calculate", "Math");
-        }
-    }
-    catch (FirebaseAuthException ex)
-    {
-        var firebaseEx = JsonConvert.DeserializeObject<FirebaseErrorModel>(ex.ResponseData);
-        ModelState.AddModelError(String.Empty, firebaseEx.error.message);
-        return View(login);
-    }
-
-    return View();
-}
-
-[HttpGet]
-public IActionResult Login()
-{
-    return View();
-}
-
-[HttpPost]
-public async Task<IActionResult> Login(LoginModel login)
-{
-    try
-    {
-        var fbAuthLink = await auth.SignInWithEmailAndPasswordAsync(login.Email, login.Password);
-        string currentUserId = fbAuthLink.User.LocalId;
         
-        if (currentUserId != null)
+        private static HttpClient httpClient = new()
         {
-            HttpContext.Session.SetString("currentUser", currentUserId);
-            return RedirectToAction("Calculate","Math");
+            BaseAddress = new Uri("http://localhost:5206/"),
+        };
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Register(LoginModel login)
+        {
+            StringContent jsonContent = new(JsonConvert.SerializeObject(login), Encoding.UTF8,"application/json"); 
+            HttpResponseMessage response = await httpClient.PostAsync("api/Auth/Register", jsonContent);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+                AuthResponse? deserialisedResponse = JsonConvert.DeserializeObject<AuthResponse>(jsonResponse);
+                
+                HttpContext.Session.SetString("currentUser", deserialisedResponse.Token);
+                return RedirectToAction("Calculate", "Math");                
+            } else
+            {
+                ViewBag.Result = "An error has occurred";
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginModel login)
+        {
+            StringContent jsonContent = new(JsonConvert.SerializeObject(login), Encoding.UTF8,"application/json"); 
+            HttpResponseMessage response = await httpClient.PostAsync("api/Auth/Login", jsonContent);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+                AuthResponse? deserialisedResponse = JsonConvert.DeserializeObject<AuthResponse>(jsonResponse);
+                
+                HttpContext.Session.SetString("currentUser", deserialisedResponse.Token);
+                return RedirectToAction("Calculate", "Math");                
+            } else
+            {
+                ViewBag.Result = "An error has occurred";
+                return View();
+            }            
+        }
+
+        [HttpGet]
+        public IActionResult LogOut()
+        {
+            HttpContext.Session.Remove("currentUser");
+            return RedirectToAction("Login");
+        }
+        
+
     }
-    catch (FirebaseAuthException ex)
-    {
-        var firebaseEx = JsonConvert.DeserializeObject<FirebaseErrorModel>(ex.ResponseData);
-        ModelState.AddModelError(String.Empty, firebaseEx.error.message);
-
-        Utils.AuthLogger.Instance.LogError(firebaseEx.error.message + " - User: " + login.Email + " - IP: " + HttpContext.Connection.RemoteIpAddress
-    + " - Browser: " + Request.Headers.UserAgent);
-
-    
-        return View(login);
-    }
-
-    
-
-    return View();
-}
-
-[HttpGet]
-public IActionResult LogOut()
-{
-    HttpContext.Session.Remove("currentUser");
-    return RedirectToAction("Login");
-}
-
 }
