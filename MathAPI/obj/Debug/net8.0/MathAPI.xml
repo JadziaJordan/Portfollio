@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MathAPI</name>
+    </assembly>
+    <members>
+        <member name="M:MathAPI.Controllers.MathController.GetHistory(System.String)">
+            <summary>Gets the MathCalculation history for a user</summary>
+            <param name="Token">Token of the current user.</param>
+            <returns>A list of MathCalcuation objects</returns>
+            <remarks>
+            Sample request:
+            
+                GET /GetHistory
+                {
+                   "Token": "{Insert token here}"
+                }
+            </remarks>
+            <response code="200">Returns the list of calculations for a user</response>
+            <response code="400">Returns if a request is missing details or fails</response>
+            <response code="401">Returns if a request is missing a token</response>
+            <response code="404">Returns if no history found</response>
+        </member>
+        <member name="M:MathAPI.Controllers.MathController.DeleteHistory(System.String)">
+            <summary>
+            Deletes the MathCalculation history for a user
+            </summary>
+            <param name="Token">Token of the current user.</param>
+            <returns>List of deleted items</returns>
+            <remarks>
+            Sample request:
+            
+                GET /DeleteHistory
+                {
+                   "Token": "{Insert token here}"
+                }
+            </remarks>
+            <response code="200">Returns the list of calculations deleted for a user</response>
+            <response code="400">Returns if a request is missing details or fails</response>
+            <response code="401">Returns if a request is missing a token</response>
+            <response code="404">Returns if no history found</response>
+        </member>
+    </members>
+</doc>

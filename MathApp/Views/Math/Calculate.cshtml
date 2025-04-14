@@ -1,0 +1,57 @@
+@model MathApp.Models.MathCalculation // Uses the MathCalculation model
+
+@{
+    ViewData["Title"] = "Calculate"; // Sets the page title
+}
+
+<h4>Welcome to the Calculator</h4>
+
+<div class="row">
+    <div class="col-md-4"> <!-- Bootstrap column for layout -->
+
+        <!-- Form to submit calculation request -->
+        <form asp-action="Calculate"method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Input for First Number -->
+            <div class="form-group">
+                <label class="control-label">First Number</label>
+                <input asp-for="FirstNumber" class="form-control" />
+                <span asp-validation-for="FirstNumber" class="text-danger"></span>
+            </div>
+
+            <!-- Input for Second Number -->
+            <div class="form-group">
+                <label class="control-label">Second Number</label>
+                <input asp-for="SecondNumber" class="form-control" />
+                <span asp-validation-for="SecondNumber" class="text-danger"></span>
+            </div>
+
+            <!-- Dropdown for selecting an operation -->
+            <div class="form-group">
+                <label class="control-label">Operation</label>
+                <select asp-for="Operation" asp-items="@ViewBag.Operations" class="form-select"></select>
+                <span asp-validation-for="Operation" class="text-danger"></span>
+            </div>
+
+            <!-- Submit button -->
+            <div class="form-group">
+                <input type="submit" value="Calculate" class="btn btn-primary" style="margin-top:30px;" />
+            </div>
+        </form>
+
+        <!-- Display result if available -->
+        <div class="form-group">
+            @{
+                if (ViewBag.Result != null)
+                {
+                    <p>Result is @ViewBag.Result</p>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} 
+}
