@@ -4,7 +4,7 @@ Portfolio 💼
 
 Hey there! 👋 Welcome to my portfolio repository.
 
-This is where I’ll be storing all the major projects I’ve built during my Bachelor’s in Computer and Application Development final year, in hopes that it will convince you to hire me. I’ll keep this space updated with projects that I work, there will be a mix of rojects stored here, everything from APIs to full-stack web apps lives here! 🚀
+I'm Jadzia, and  I am a growing software developer! This is where I’ll be storing all the major projects I’ve built during my Bachelor’s in Computer and Application Development final year, in hopes that it will convince you to hire me. I’ll keep this space updated with projects that I work, there will be a mix of rojects stored here, everything from APIs to full-stack web apps lives here! 🚀
 
 📁 Projects Included (So Far)
 
