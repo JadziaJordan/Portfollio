@@ -1,0 +1,54 @@
+﻿@model Cloud_FinalTwo.Models.Proccessing
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Proccessing</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.shopperID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.shopperID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.pocessedProducts)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.pocessedProducts)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.processedTotal)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.processedTotal)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.numberItems)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.numberItems)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.isProcessed)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.isProcessed)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Process_ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

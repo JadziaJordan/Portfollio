@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Cloud_FinalTwo.Models.Cart>
+
+@{
+    ViewData["Title"] = "Shopping Cart";
+    var totalPrice = TempData["TotalPrice"] as string;
+}
+
+<h1 class="display-4 bebas-neue-regular">MY SHOPPING CART</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Artist</th>
+            <th>Price (R)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Product.ProductID)</td>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+                <td>@Html.DisplayFor(modelItem => item.Artist)</td>
+                <td>@Html.DisplayFor(modelItem => item.Price)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (!string.IsNullOrEmpty(totalPrice))
+{
+    <p class="total-price"><strong>TOTAL PRICE: @totalPrice</strong></p>
+}
+
+<form asp-controller="Carts" asp-action="ProcessOrder" method="post">
+    <button type="submit" class="btn btn-success">Process Order</button>
+</form>
+
+<style>
+    .total-price {
+        font-size: 24px; /* Adjust font size as needed */
+        margin-top: 20px; /* Add space between total price and button */
+    }
+
+    form {
+        display: inline; /* Ensure the form and button are displayed inline */
+    }
+</style>

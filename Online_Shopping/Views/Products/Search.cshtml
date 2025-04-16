@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Cloud_FinalTwo.Models.Products>
+@{
+    ViewData["Title"] = "Search Results";
+}
+
+<style>
+    .card-fixed-size {
+        height: 650px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .card-body {
+        flex-grow: 1;
+    }
+
+    .card-img-top {
+        height: 300px;
+        object-fit: cover;
+    }
+
+    .card-btn {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+    }
+</style>
+
+<h1>Search Results</h1>
+
+@if (!Model.Any())
+{
+    <p>No results found.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="card card-fixed-size my-3">
+                    <img class="card-img-top img-fluid" src="@item.ImageURL" alt="@item.ProductName">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.ProductName</h5>
+                        <p class="card-text"><strong>Price:</strong> R @item.ProductPrice</p>
+                        <p class="card-text"><strong>Category:</strong> @item.ProductCategory</p>
+                        <p class="card-text"><strong>Description:</strong> @item.ProductDescription</p>
+                        <p class="card-text"><strong>Available Quantity:</strong> @item.Proudct_Qaunt</p>
+                        <a asp-controller="Products" asp-action="AddToCart" asp-route-id="@item.ProductID" class="btn btn-success card-btn">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

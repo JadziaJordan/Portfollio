@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Cloud_FinalTwo.props" />
+</Project>

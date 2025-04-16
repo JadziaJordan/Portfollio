@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Cloud_FinalTwo.Models.Products>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    .card-fixed-size {
+        height: 650px; 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative; 
+    }
+
+    .card-body {
+        flex-grow: 1;
+       
+    }
+
+    .card-img-top {
+        height: 300px; 
+        object-fit: cover;
+    }
+
+    .card-btn {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+    }
+</style>
+
+@if (User.IsInRole("Admin"))
+{
+    <h1 class="display-4 bebas-neue-regular">INVENTORY</h1>
+    <p>
+        <a asp-action="Create">Add New Product</a>
+    </p>
+   
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Artist</th>
+                <th>Price (R)</th>
+                <th>Description</th>
+                <th>Availability</th>
+                <th>Image URL</th>
+                <th>Category</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Proudct_Qaunt)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Artist)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ProductPrice)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ProductDescription)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ProductAvailibility)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ImageURL)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ProductCategory)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ProductID" class="btn btn-success">Edit</a> 
+                        <a asp-action="Details" asp-route-id="@item.ProductID" class="btn btn-success">Details</a> 
+                        <a asp-action="Delete" asp-route-id="@item.ProductID" class="btn btn-success">Delete</a> 
+                       
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1 class="display-4 bebas-neue-regular">ONLINE SHOP</h1>
+    <form asp-action="Search" method="get">
+        <div class="form-group">
+            <input type="text" name="searchString" class="form-control" placeholder="Search by name or category" />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="card card-fixed-size my-3">
+                    <img class="card-img-top img-fluid" src="@item.ImageURL" alt="@item.ProductName">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.ProductName</h5>
+                        <p class="card-text"><strong>Price:</strong> R @item.ProductPrice</p>
+                        <p class="card-text"><strong>Category:</strong> @item.ProductCategory</p>
+                        <p class="card-text"><strong>Description:</strong> @item.ProductDescription</p>
+                        <p class="card-text"><strong>Available Quantity:</strong> @item.Proudct_Qaunt</p>
+                    </div>
+                    <form asp-controller="Products" asp-action="AddToCart" asp-route-id="@item.ProductID" class="card-btn">
+                        <button type="submit" class="btn btn-success">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+}
