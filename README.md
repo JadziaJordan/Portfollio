@@ -1,6 +1,6 @@
 # Portfolio
 
-Portfolio 💼
+🚧"Student dev. Passionate coder. Occasional debugger of my own mistakes."
 
 Hey there! 👋 Welcome to my portfolio repository.
 
