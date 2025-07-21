@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="d-flex justify-content-center align-items-center mt-5">
+    <div class="card shadow-lg p-4" style="width: 100%; max-width: 400px;">
+         @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger" role="alert">
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <div>@error.ErrorMessage</div>
+            }
+        </div>
+    }
+        <div class="card-body">
+            <h2 class="text-center fw-bold mb-4" style="color: var(--primary-green);">Login</h2>
+
+            <form method="post">
+                <div class="form-group mb-3">
+                    <label for="Email" class="form-label" style="color: var(--text-dark);">Email</label>
+                    <input type="email" name="email" id="Email" class="form-control" required style="border: 1px solid var(--border-light);" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Password" class="form-label" style="color: var(--text-dark);">Password</label>
+                    <input type="password" name="password" id="Password" class="form-control" required style="border: 1px solid var(--border-light);" />
+                </div>
+
+                <div class="form-group form-check mb-3">
+                    <input type="checkbox" name="rememberMe" id="RememberMe" class="form-check-input" />
+                    <label for="RememberMe" class="form-check-label" style="color: var(--text-dark);">Remember me</label>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success" style="background-color: var(--accent-green); border: none; font-weight: 500;">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

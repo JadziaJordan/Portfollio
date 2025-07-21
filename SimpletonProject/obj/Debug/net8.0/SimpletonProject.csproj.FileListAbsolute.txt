@@ -1,0 +1,14 @@
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonProject\bin\Debug\net8.0\SimpletonProject.exe
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonProject\bin\Debug\net8.0\SimpletonProject.deps.json
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonProject\bin\Debug\net8.0\SimpletonProject.runtimeconfig.json
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonProject\bin\Debug\net8.0\SimpletonProject.dll
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonProject\bin\Debug\net8.0\SimpletonProject.pdb
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonProject\obj\Debug\net8.0\SimpletonProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonProject\obj\Debug\net8.0\SimpletonProject.AssemblyInfoInputs.cache
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonProject\obj\Debug\net8.0\SimpletonProject.AssemblyInfo.cs
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonProject\obj\Debug\net8.0\SimpletonProject.csproj.CoreCompileInputs.cache
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonProject\obj\Debug\net8.0\SimpletonProject.dll
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonProject\obj\Debug\net8.0\refint\SimpletonProject.dll
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonProject\obj\Debug\net8.0\SimpletonProject.pdb
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonProject\obj\Debug\net8.0\SimpletonProject.genruntimeconfig.cache
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonProject\obj\Debug\net8.0\ref\SimpletonProject.dll

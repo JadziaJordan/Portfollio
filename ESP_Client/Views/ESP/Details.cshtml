@@ -1,0 +1,86 @@
+@model ESP_Client.Models.EspResponse
+
+@{
+    ViewData["Title"] = "ESP Area Details";
+}
+
+@{
+    if (Model != null)
+    {
+
+        <h4>Schedule for @Model.info.name in @Model.info.region</h4>
+            if (Model.events.Count != 0)
+            {
+                //stage 4                           since  10                    untill                      9 
+                <h5>Currently @Model.events[0].note since @Model.events[0].start until @Model.events[0].end</h5>
+            } else
+            {
+                <h5>Currently not load shedding.</h5>
+            }
+
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Day
+                    </th>
+                    <th>
+                        Schedule
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.schedule.days)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.date)
+                        </td>
+                        <td>
+
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+                            <table class="table">
+                            @{int stageIndex = 1;}
+                            @foreach (var stage in item.stages)
+                            {
+                                <tr>
+                                    <td> Stage @stageIndex</td>
+                                    <td>
+                                        @{
+                                            if (stage.Count > 0)
+                                            {
+                                                <table>
+                                                    @foreach (var time in stage)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @Html.DisplayFor(t => time)
+                                                            </td>
+                                                        </tr>
+
+                                                    }
+                                                </table>
+                                            } else
+                                            {
+                                                @Html.Label("None");
+                                            }
+                                        }
+                                    </td>
+                                </tr>
+                                stageIndex++;
+                                }
+                            </table>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+}

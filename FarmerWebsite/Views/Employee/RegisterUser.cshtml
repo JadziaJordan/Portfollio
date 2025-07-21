@@ -1,0 +1,31 @@
+@model Prog7311_PartTwo.Models.RegisterUserViewModel
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow-sm p-4 bg-white rounded" style="width: 100%; max-width: 500px; border: 1px solid var(--accent-pink);">
+        <h2 class="mb-4 text-center fw-bold" style="color: var(--primary-green);">Register New Farmer</h2>
+
+        <form asp-action="RegisterUser" method="post">
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label fw-semibold">Email</label>
+                <input asp-for="Email" class="form-control" style="border: 1px solid var(--border-light);" />
+                <span asp-validation-for="Email" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="Password" class="form-label fw-semibold">Password</label>
+                <input asp-for="Password" class="form-control" style="border: 1px solid var(--border-light);" />
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn" style="background-color: var(--accent-green); color: white; font-weight: 500;">
+                    Register
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

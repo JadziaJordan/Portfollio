@@ -1,0 +1,14 @@
+C:\Users\Jadzia Jordan\source\repos\Year Three\MementoGame\bin\Debug\net8.0\MementoGame.exe
+C:\Users\Jadzia Jordan\source\repos\Year Three\MementoGame\bin\Debug\net8.0\MementoGame.dll
+C:\Users\Jadzia Jordan\source\repos\Year Three\MementoGame\obj\Debug\net8.0\MementoGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jadzia Jordan\source\repos\Year Three\MementoGame\obj\Debug\net8.0\MementoGame.AssemblyInfoInputs.cache
+C:\Users\Jadzia Jordan\source\repos\Year Three\MementoGame\obj\Debug\net8.0\MementoGame.AssemblyInfo.cs
+C:\Users\Jadzia Jordan\source\repos\Year Three\MementoGame\obj\Debug\net8.0\MementoGame.csproj.CoreCompileInputs.cache
+C:\Users\Jadzia Jordan\source\repos\Year Three\MementoGame\obj\Debug\net8.0\MementoGame.dll
+C:\Users\Jadzia Jordan\source\repos\Year Three\MementoGame\obj\Debug\net8.0\refint\MementoGame.dll
+C:\Users\Jadzia Jordan\source\repos\Year Three\MementoGame\obj\Debug\net8.0\MementoGame.pdb
+C:\Users\Jadzia Jordan\source\repos\Year Three\MementoGame\bin\Debug\net8.0\MementoGame.deps.json
+C:\Users\Jadzia Jordan\source\repos\Year Three\MementoGame\bin\Debug\net8.0\MementoGame.runtimeconfig.json
+C:\Users\Jadzia Jordan\source\repos\Year Three\MementoGame\bin\Debug\net8.0\MementoGame.pdb
+C:\Users\Jadzia Jordan\source\repos\Year Three\MementoGame\obj\Debug\net8.0\MementoGame.genruntimeconfig.cache
+C:\Users\Jadzia Jordan\source\repos\Year Three\MementoGame\obj\Debug\net8.0\ref\MementoGame.dll

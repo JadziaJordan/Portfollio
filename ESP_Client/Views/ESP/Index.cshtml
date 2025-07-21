@@ -1,0 +1,68 @@
+@model ESP_Client.Models.AreasModel
+
+@{
+    ViewData["Title"] = "ESP";
+}
+
+<h4>ESP Area Search</h4>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div class="form-group">
+                <label class="control-label">Area</label>
+                <input name="search" class="form-control" />
+                
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-primary" style="margin-top:30px;" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@{
+    if (Model != null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Region
+                    </th>
+                    <th>
+                        View Status
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.areas)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id)
+                        </td>
+                        <td>
+
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.region)
+                        </td>
+                        <td>
+                            @Html.ActionLink("View Details", "Details", "ESP", new { id = item.id})
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+}

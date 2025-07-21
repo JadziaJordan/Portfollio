@@ -1,0 +1,99 @@
+:root {
+  --primary-green: #006400; /* Darker Green */
+  --accent-green: #008000; /* Slightly lighter green for accents */
+  --brown: #000000;
+  --highlight-yellow: #e1ff74;
+  --border-light: #643327;
+  --card-bg: #fefefe;
+  --text-dark: #333;
+  --background: #fdf7f9; /* Light background */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background);
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+
+  /* ✅ Background image settings */
+  background-image: url('/Images/pexels-pixabay-235725.jpg'); /* Make sure the path is correct */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+main {
+  flex: 1;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--primary-green) !important;
+  border-bottom: 2px solid var(--brown);
+}
+
+.navbar-brand,
+.nav-link {
+  color: white !important;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: var(--highlight-yellow) !important;
+}
+
+/* Buttons */
+.btn {
+  background-color: var(--accent-green);
+  border: none;
+  color: white;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background-color: var(--primary-green);
+}
+
+/* Cards and containers */
+.card {
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Footer */
+footer.footer {
+  background-color: var(--primary-green);
+  color: white;
+  padding: 1rem 0;
+  margin-top: auto; /* Ensures footer stays at the bottom */
+}
+
+footer .container {
+  text-align: center;
+}
+
+/* Form Elements */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  border-radius: 6px;
+  border: 1px solid var(--border-light);
+  padding: 0.5rem;
+}
+
+/* Subtle card hover effect */
+.card:hover {
+  transform: scale(1.01);
+  transition: transform 0.2s ease-in-out;
+}

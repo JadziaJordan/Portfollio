@@ -1,0 +1,35 @@
+@model Prog7311_PartTwo.Models.FarmerProfileModel
+
+<div class="text-center mb-5">
+    <h2 class="fw-bold" style="color: var(--primary-green);">Create Farmer Profile</h2>
+</div>
+
+<form asp-action="CreateProfile" method="post" class="bg-white p-4 rounded shadow-sm mx-auto" style="max-width: 600px; border: 1px solid var(--accent-pink);">
+    <div class="mb-3">
+        <label asp-for="FullName" class="form-label fw-semibold">Full Name</label>
+        <input asp-for="FullName" class="form-control" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Location" class="form-label fw-semibold">Location</label>
+        <input asp-for="Location" class="form-control" />
+        <span asp-validation-for="Location" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label fw-semibold">Description</label>
+        <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <input type="hidden" asp-for="UserId" />
+
+    <div class="text-center mt-4">
+        <button type="submit" class="btn" style="background-color: var(--accent-green); color: white; font-weight: 500;">Save Profile</button>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

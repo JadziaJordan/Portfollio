@@ -1,0 +1,50 @@
+﻿@model NewsAPi.Models.ArticleResponses
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h4>Top Headlines</h4>
+
+<div class="container">
+    <div class="row">
+        @if (Model != null && Model.Articles != null && Model.Articles.Any())
+        {
+            @foreach (var item in Model.Articles)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        @if (!string.IsNullOrEmpty(item.UrlToImage))
+                        {
+                            <img src="@item.UrlToImage" class="card-img-top" alt="News Image">
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Title</h5>
+                            <p class="card-text text-muted">
+                                <strong>Source:</strong> @item.Source?.Name
+                            </p>
+                            <p class="card-text">
+                                @if (!string.IsNullOrEmpty(item.Description))
+                                {
+                                    @item.Description.Substring(0, Math.Min(item.Description.Length, 100)) @("...")
+                                }
+                            </p>
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    Published: @item.PublishedAt.ToString("MMMM dd, yyyy")
+                                </small>
+                            </p>
+                            <a href="@item.Url" class="btn btn-primary" target="_blank">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <p class="text-center">No articles available.</p>
+            </div>
+        }
+    </div>
+</div>

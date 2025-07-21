@@ -1,0 +1,32 @@
+﻿@model MementoWeb.Models.Editor
+
+@{
+    ViewBag.Title = "Text Editor";
+}
+
+<h2>Text Editor</h2>
+
+<form action="@Url.Action("SaveState", "Home")" method="post">
+    <textarea name="textContent" rows="10" cols="50">@Model.TextContent</textarea>
+    <br />
+    <button type="submit">Save</button>
+</form>
+
+<br />
+
+<form action="@Url.Action("Undo", "Home")" method="post">
+    <button type="submit">Undo</button>
+</form>
+
+<hr />
+
+<!-- Display version history below -->
+<h3>Version History</h3>
+<ul>
+    @foreach (var snapshot in ViewBag.History)
+    {
+        <li>
+            @snapshot.TextContent
+        </li>
+    }
+</ul>

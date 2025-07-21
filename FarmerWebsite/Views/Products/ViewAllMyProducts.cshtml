@@ -1,0 +1,65 @@
+@model List<Prog7311_PartTwo.Models.ProductsModel>
+
+@{
+    ViewData["Title"] = "All Products";
+}
+
+<h2 class="mb-4 text-center" style="color: var(--primary-green); font-weight: bold;">Your Products </h2>
+
+@* <form method="get" asp-action="ViewAllProducts" class="mb-4">
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <label>Category</label>
+            <input type="text" name="category" class="form-control" value="@ViewBag.Category" placeholder="Enter category" />
+        </div>
+
+        <div class="col-md-3">
+            <label>Product Name</label>
+            <input type="text" name="productName" class="form-control" value="@ViewBag.ProductName" placeholder="Enter product name" />
+        </div>
+
+        <div class="col-md-2">
+            <label>Start Date</label>
+            <input type="date" name="startDate" class="form-control" value="@ViewBag.StartDate" />
+        </div>
+
+        <div class="col-md-2">
+            <label>End Date</label>
+            <input type="date" name="endDate" class="form-control" value="@ViewBag.EndDate" />
+        </div>
+
+        <div class="col-md-2 d-flex align-items-end">
+            <button type="submit" class="btn btn-success me-2">Filter</button>
+            <a href="@Url.Action("ViewAllProducts", "Products")" class="btn btn-secondary">Clear</a>
+        </div>
+    </div>
+</form> *@
+
+@if (Model == null || !Model.Any())
+{
+    <p class="text-muted text-center">No products found based on the selected filters.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm" style="border: 1px solid var(--border-light);">
+                    <img src="@product.ImageURL" class="card-img-top" alt="@product.ProductName" style="max-height: 200px; object-fit: cover;" />
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: var(--primary-green); font-weight: 600;">@product.ProductName</h5>
+                        <p class="card-text text-muted">@product.ProductDescription</p>
+                        <ul class="list-unstyled mb-0">
+                            <li><strong>Price:</strong> R @product.ProductPrice</li>
+                            <li><strong>Quantity:</strong> @product.Proudct_Qaunt</li>
+                            <li><strong>Category:</strong> @product.ProductCategory</li>
+                            <li><strong>Production Date:</strong> @product.Production.ToString("yyyy-MM-dd")</li>
+                            <li><strong>Farmer:</strong> @product.Farmer</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Cool_UI_Zoom.props" />
+</Project>

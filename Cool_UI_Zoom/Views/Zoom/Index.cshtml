@@ -1,0 +1,138 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Scroll Zoom</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Link to external CSS file for additional styling (optional) -->
+    <link rel="stylesheet" href="~/css/scrollZoom.css" />
+
+    <!-- Include GSAP core and ScrollTrigger plugin from CDN for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* Basic reset for body and html, preventing unwanted scrolling and setting up the font */
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            font-family: sans-serif;
+            background-color: rgb(233, 117, 23); /* Background color for smooth transition */
+        }
+
+        /* Container holds all scenes in one viewport */
+        .container {
+            height: 100vh; /* Full viewport height */
+            position: relative;
+            overflow: hidden; /* Hides content outside the container */
+        }
+
+        /* Each scene takes up full screen and is stacked on top of each other */
+        .scene {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            font-weight: bold;
+            will-change: transform, opacity; /* Optimizes for animations */
+            transform: scale(0.8); /* Initial zoom-out effect */
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for opacity and scale */
+        }
+
+        /* Scene 1 - Red background, fully visible at first */
+        #scene1 {
+            background-color: red;
+            z-index: 3; /* Layered above others */
+            opacity: 1; /* Fully visible */
+            transform: scale(1); /* Normal size */
+        }
+
+        /* Scene 2 - More vibrant orange */
+        #scene2 {
+            background-color: #FF6A00; /* More orangey */
+            z-index: 2;
+            color: rgb(248, 156, 51);
+        }
+
+        /* Scene 3 - Normal yellow */
+        #scene3 {
+            background-color: rgb(255, 217, 0); /* Normal yellow */
+            z-index: 1;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main container holding all scenes -->
+    <div class="container">
+        <!-- Scene 1 (Red background) -->
+        <div class="scene" id="scene1">
+            @Html.Partial("One") <!-- Partial view for scene 1 content -->
+        </div>
+
+        <!-- Scene 2 (Orange background) -->
+        <div class="scene" id="scene2">
+            @Html.Partial("Two") <!-- Partial view for scene 2 content -->
+        </div>
+
+        <!-- Scene 3 (Yellow background) -->
+        <div class="scene" id="scene3">
+            @Html.Partial("Three") <!-- Partial view for scene 3 content -->
+        </div>
+    </div>
+
+    <script>
+        // Register ScrollTrigger plugin for scroll-based animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Create GSAP timeline for controlling the sequence of animations
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".container",  // Element to trigger scroll animation
+                start: "top top",        // Animation starts when top of container reaches top of viewport
+                end: "+=3000",           // End after scrolling 3000px (adjust as needed)
+                scrub: true,             // Links the animation to the scroll position
+                pin: true,               // Pins the container during the scroll animation
+                anticipatePin: 1         // Prevents sudden jumps during pinning
+            }
+        });
+
+        // Scene 1 animation: Zoom out and fade
+        tl.to("#scene1", {
+            scale: 1.2,         // Zoom out effect
+            opacity: 0,         // Fade out
+            duration: 1         // Duration of the animation
+        });
+
+        // Scene 2 animation: Zoom in, fade in, then zoom out and fade out
+        tl.fromTo("#scene2", 
+            { scale: 0.8, opacity: 0 },   // Starting scale and opacity
+            { scale: 1, opacity: 1, duration: 1 } // Zoom in and fade in
+        ).to("#scene2", {
+            scale: 1.2,         // Zoom out effect
+            opacity: 0,         // Fade out
+            duration: 1         // Duration of the animation
+        });
+
+        // Scene 3 animation: Zoom in and fade in
+        tl.fromTo("#scene3", 
+            { scale: 0.8, opacity: 0 },   // Starting scale and opacity
+            { scale: 1, opacity: 1, duration: 1 } // Zoom in and fade in
+        );
+    </script>
+
+</body>
+</html>

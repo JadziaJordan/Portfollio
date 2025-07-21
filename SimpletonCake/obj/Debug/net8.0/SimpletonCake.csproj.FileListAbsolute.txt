@@ -1,0 +1,14 @@
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonCake\obj\Debug\net8.0\SimpletonCake.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonCake\obj\Debug\net8.0\SimpletonCake.AssemblyInfoInputs.cache
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonCake\obj\Debug\net8.0\SimpletonCake.AssemblyInfo.cs
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonCake\obj\Debug\net8.0\SimpletonCake.csproj.CoreCompileInputs.cache
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonCake\bin\Debug\net8.0\SimpletonCake.exe
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonCake\bin\Debug\net8.0\SimpletonCake.deps.json
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonCake\bin\Debug\net8.0\SimpletonCake.runtimeconfig.json
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonCake\bin\Debug\net8.0\SimpletonCake.dll
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonCake\bin\Debug\net8.0\SimpletonCake.pdb
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonCake\obj\Debug\net8.0\SimpletonCake.dll
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonCake\obj\Debug\net8.0\refint\SimpletonCake.dll
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonCake\obj\Debug\net8.0\SimpletonCake.pdb
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonCake\obj\Debug\net8.0\SimpletonCake.genruntimeconfig.cache
+C:\Users\Jadzia Jordan\source\repos\Year Three\SimpletonCake\obj\Debug\net8.0\ref\SimpletonCake.dll
