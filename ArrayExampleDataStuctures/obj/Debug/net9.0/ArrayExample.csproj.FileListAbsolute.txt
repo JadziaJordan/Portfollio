@@ -1,0 +1,14 @@
+C:\Users\lab_services_student\Desktop\EB Lecture\ArrayExample\bin\Debug\net9.0\ArrayExample.exe
+C:\Users\lab_services_student\Desktop\EB Lecture\ArrayExample\bin\Debug\net9.0\ArrayExample.deps.json
+C:\Users\lab_services_student\Desktop\EB Lecture\ArrayExample\bin\Debug\net9.0\ArrayExample.runtimeconfig.json
+C:\Users\lab_services_student\Desktop\EB Lecture\ArrayExample\bin\Debug\net9.0\ArrayExample.dll
+C:\Users\lab_services_student\Desktop\EB Lecture\ArrayExample\bin\Debug\net9.0\ArrayExample.pdb
+C:\Users\lab_services_student\Desktop\EB Lecture\ArrayExample\obj\Debug\net9.0\ArrayExample.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lab_services_student\Desktop\EB Lecture\ArrayExample\obj\Debug\net9.0\ArrayExample.AssemblyInfoInputs.cache
+C:\Users\lab_services_student\Desktop\EB Lecture\ArrayExample\obj\Debug\net9.0\ArrayExample.AssemblyInfo.cs
+C:\Users\lab_services_student\Desktop\EB Lecture\ArrayExample\obj\Debug\net9.0\ArrayExample.csproj.CoreCompileInputs.cache
+C:\Users\lab_services_student\Desktop\EB Lecture\ArrayExample\obj\Debug\net9.0\ArrayExample.dll
+C:\Users\lab_services_student\Desktop\EB Lecture\ArrayExample\obj\Debug\net9.0\refint\ArrayExample.dll
+C:\Users\lab_services_student\Desktop\EB Lecture\ArrayExample\obj\Debug\net9.0\ArrayExample.pdb
+C:\Users\lab_services_student\Desktop\EB Lecture\ArrayExample\obj\Debug\net9.0\ArrayExample.genruntimeconfig.cache
+C:\Users\lab_services_student\Desktop\EB Lecture\ArrayExample\obj\Debug\net9.0\ref\ArrayExample.dll
