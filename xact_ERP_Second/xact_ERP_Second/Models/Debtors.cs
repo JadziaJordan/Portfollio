@@ -8,8 +8,10 @@
         public string InvoiceAddress { get; set; }
         public string PostalAddress { get; set; }
         public string AccountHolder { get; set; }
-        public int AcoountNumber { get; set; } 
+        public int AcoountNumber { get; set; }
         public string Branch { get; set; }
+
+        public string Status { get; set; }
 
         public decimal Balance { get; set; } 
         public decimal SalesYearToDate { get; set; } 

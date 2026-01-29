@@ -11,12 +11,48 @@
       "RelativeMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|solutionrelative:xact_erp_second\\stockmaster.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|c:\\users\\jadzia jordan\\onedrive\\desktop\\erp\\xact_erp_second\\xact_erp_second\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|solutionrelative:xact_erp_second\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|c:\\users\\jadzia jordan\\onedrive\\desktop\\erp\\xact_erp_second\\xact_erp_second\\prev_stock.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|solutionrelative:xact_erp_second\\prev_stock.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|c:\\users\\jadzia jordan\\onedrive\\desktop\\erp\\xact_erp_second\\xact_erp_second\\prev_stock.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|solutionrelative:xact_erp_second\\prev_stock.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|c:\\users\\jadzia jordan\\onedrive\\desktop\\erp\\xact_erp_second\\xact_erp_second\\prev_debtor.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|solutionrelative:xact_erp_second\\prev_debtor.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|c:\\users\\jadzia jordan\\onedrive\\desktop\\erp\\xact_erp_second\\xact_erp_second\\debtorsmasters.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|solutionrelative:xact_erp_second\\debtorsmasters.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|c:\\users\\jadzia jordan\\onedrive\\desktop\\erp\\xact_erp_second\\xact_erp_second\\debtorsmasters.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|solutionrelative:xact_erp_second\\debtorsmasters.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|c:\\users\\jadzia jordan\\onedrive\\desktop\\erp\\xact_erp_second\\xact_erp_second\\xact_erp_second.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|solutionrelative:xact_erp_second\\xact_erp_second.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|c:\\users\\jadzia jordan\\onedrive\\desktop\\erp\\xact_erp_second\\xact_erp_second\\models\\stock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|solutionrelative:xact_erp_second\\models\\stock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|c:\\users\\jadzia jordan\\onedrive\\desktop\\erp\\xact_erp_second\\xact_erp_second\\models\\debtors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|solutionrelative:xact_erp_second\\models\\debtors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|c:\\users\\jadzia jordan\\onedrive\\desktop\\erp\\xact_erp_second\\xact_erp_second\\prev_debtor.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|solutionrelative:xact_erp_second\\prev_debtor.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|c:\\users\\jadzia jordan\\onedrive\\desktop\\erp\\xact_erp_second\\xact_erp_second\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|solutionrelative:xact_erp_second\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CA82D0CF-0311-BE37-35AC-3243F3736E44}|xact_ERP_Second\\xact_ERP_Second.csproj|c:\\users\\jadzia jordan\\onedrive\\desktop\\erp\\xact_erp_second\\xact_erp_second\\data\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,21 +66,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "StockMaster.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\StockMaster.xaml.cs",
-              "RelativeDocumentMoniker": "xact_ERP_Second\\StockMaster.xaml.cs",
-              "ToolTip": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\StockMaster.xaml.cs",
-              "RelativeToolTip": "xact_ERP_Second\\StockMaster.xaml.cs",
-              "ViewState": "AgIAAEIBAAAAAAAAAAAmwFMBAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T08:28:52.614Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -54,37 +77,155 @@
               "ToolTip": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\StockMaster.xaml",
               "RelativeToolTip": "xact_ERP_Second\\StockMaster.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-28T08:28:33.077Z",
+              "WhenOpened": "2026-01-29T13:30:41.446Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Prev_Stock.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\Prev_Stock.xaml.cs",
+              "RelativeDocumentMoniker": "xact_ERP_Second\\Prev_Stock.xaml.cs",
+              "ToolTip": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\Prev_Stock.xaml.cs",
+              "RelativeToolTip": "xact_ERP_Second\\Prev_Stock.xaml.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAgwBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-29T12:46:05.619Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StockMaster.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\StockMaster.xaml.cs",
+              "RelativeDocumentMoniker": "xact_ERP_Second\\StockMaster.xaml.cs",
+              "ToolTip": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\StockMaster.xaml.cs*",
+              "RelativeToolTip": "xact_ERP_Second\\StockMaster.xaml.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T08:28:52.614Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Stock.cs",
+              "DocumentMoniker": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\Models\\Stock.cs",
+              "RelativeDocumentMoniker": "xact_ERP_Second\\Models\\Stock.cs",
+              "ToolTip": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\Models\\Stock.cs",
+              "RelativeToolTip": "xact_ERP_Second\\Models\\Stock.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-29T11:31:04.214Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "xact_ERP_Second.csproj",
+              "DocumentMoniker": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\xact_ERP_Second.csproj",
+              "RelativeDocumentMoniker": "xact_ERP_Second\\xact_ERP_Second.csproj",
+              "ToolTip": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\xact_ERP_Second.csproj",
+              "RelativeToolTip": "xact_ERP_Second\\xact_ERP_Second.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-01-29T11:31:04.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Prev_Stock.xaml",
+              "DocumentMoniker": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\Prev_Stock.xaml",
+              "RelativeDocumentMoniker": "xact_ERP_Second\\Prev_Stock.xaml",
+              "ToolTip": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\Prev_Stock.xaml",
+              "RelativeToolTip": "xact_ERP_Second\\Prev_Stock.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-29T11:30:58.164Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Prev_Debtor.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\Prev_Debtor.xaml.cs",
+              "RelativeDocumentMoniker": "xact_ERP_Second\\Prev_Debtor.xaml.cs",
+              "ToolTip": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\Prev_Debtor.xaml.cs",
+              "RelativeToolTip": "xact_ERP_Second\\Prev_Debtor.xaml.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAYwB0AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-29T09:43:02.138Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Prev_Debtor.xaml",
+              "DocumentMoniker": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\Prev_Debtor.xaml",
+              "RelativeDocumentMoniker": "xact_ERP_Second\\Prev_Debtor.xaml",
+              "ToolTip": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\Prev_Debtor.xaml",
+              "RelativeToolTip": "xact_ERP_Second\\Prev_Debtor.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-29T09:42:57.179Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\App.xaml",
+              "RelativeDocumentMoniker": "xact_ERP_Second\\App.xaml",
+              "ToolTip": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\App.xaml",
+              "RelativeToolTip": "xact_ERP_Second\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-29T09:22:40.251Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Debtors.cs",
+              "DocumentMoniker": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\Models\\Debtors.cs",
+              "RelativeDocumentMoniker": "xact_ERP_Second\\Models\\Debtors.cs",
+              "ToolTip": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\Models\\Debtors.cs",
+              "RelativeToolTip": "xact_ERP_Second\\Models\\Debtors.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-29T09:20:52.156Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\appsettings.json",
+              "RelativeDocumentMoniker": "xact_ERP_Second\\appsettings.json",
+              "ToolTip": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\appsettings.json",
+              "RelativeToolTip": "xact_ERP_Second\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-01-29T08:45:36.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "DebtorsMasters.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\DebtorsMasters.xaml.cs",
               "RelativeDocumentMoniker": "xact_ERP_Second\\DebtorsMasters.xaml.cs",
               "ToolTip": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\DebtorsMasters.xaml.cs",
               "RelativeToolTip": "xact_ERP_Second\\DebtorsMasters.xaml.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAowEcAAABFAAAAAAAAAA==",
+              "ViewState": "AgIAAEoBAAAAAAAAAAAgwGMBAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T06:42:41.603Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-27T06:42:41.603Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "DebtorsMasters.xaml",
               "DocumentMoniker": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\DebtorsMasters.xaml",
               "RelativeDocumentMoniker": "xact_ERP_Second\\DebtorsMasters.xaml",
               "ToolTip": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\DebtorsMasters.xaml",
               "RelativeToolTip": "xact_ERP_Second\\DebtorsMasters.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-27T06:22:08.984Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-27T06:22:08.984Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 13,
               "Title": "Data.cs",
               "DocumentMoniker": "C:\\Users\\Jadzia Jordan\\OneDrive\\Desktop\\ERP\\xact_ERP_Second\\xact_ERP_Second\\Data\\Data.cs",
               "RelativeDocumentMoniker": "xact_ERP_Second\\Data\\Data.cs",

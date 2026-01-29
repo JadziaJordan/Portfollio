@@ -11,6 +11,12 @@
     <Compile Update="InvoiceEnquiry.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Prev_Debtor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Prev_Stock.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="StockEnquiry.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

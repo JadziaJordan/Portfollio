@@ -10,7 +10,7 @@ namespace xact_ERP_Second.Models
        
         public string StockName { get; set; }
         public string StockDescription { get; set; }
-
+        public string Status { get; set; }
         public string Brand { get; set; }
         public string Category { get; set; }
         public string Location { get; set; }

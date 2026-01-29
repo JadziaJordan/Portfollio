@@ -9,14 +9,12 @@
         Height="526" 
         Width="840">
 
-
     <Grid Margin="0,0,0,0">
 
         <!-- Background image -->
         <Grid.Background>
             <ImageBrush ImageSource="pack://application:,,,/Images/DM_Background.png" Stretch="UniformToFill" Opacity="0.9"/>
         </Grid.Background>
-
 
         <Grid.RowDefinitions>
             <!--row 0-->
@@ -25,8 +23,6 @@
             <RowDefinition Height="127*" />
             <!-- row 2  -->
             <RowDefinition Height="293*" />
-
-
         </Grid.RowDefinitions>
 
         <!-- Green panel -->
@@ -37,11 +33,9 @@
                     Padding="20"
                     Margin="15,10,15,15">
 
-           
                 <Viewbox Stretch="Uniform" 
                          Margin="-16,-10,0,-10" 
-                         HorizontalAlignment="Left" 
->
+                         HorizontalAlignment="Left">
 
                     <Grid Width="2598" Height="250">
 
@@ -49,13 +43,12 @@
                             <ColumnDefinition Width="500"/>
                             <ColumnDefinition Width="500"/>
                             <ColumnDefinition Width="500"/>
-                            <ColumnDefinition Width="500"/>
-                            <ColumnDefinition Width="600
-                                              "/>
+                            <ColumnDefinition Width="258"/>
+                            <ColumnDefinition Width="842"/>
                         </Grid.ColumnDefinitions>
 
                         <!-- Column 0 -->
-                        <StackPanel Grid.Column="0" Margin="10">
+                        <StackPanel Grid.Column="0" Margin="10,10,10,10">
                             <TextBlock Text="DEBTORS"
                                        Foreground="White"
                                        FontWeight="ExtraBold"
@@ -72,19 +65,16 @@
                                      HorizontalAlignment="Left"
                                      FontSize="24"/>
 
-
-                            <TextBlock Text="Click a Debtor in Table to Edit"
+                            <TextBlock Text="Double Click a Debtor in Table to Edit"
                                        Foreground="White"
                                        FontSize="25"
                                        TextAlignment="Left"
                                        Width="489"
-                                      Margin="0,30,0,0"/> 
-
+                                      Margin="0,30,0,0"/>
                         </StackPanel>
 
                         <!-- Column 1 -->
-                        <StackPanel Grid.Column="1" Margin="10">
-
+                        <StackPanel Grid.Column="1" Margin="10,10,10,10">
                             <TextBlock Text="Delivery Address" 
                                        Foreground="White" 
                                        FontSize="25"/>
@@ -118,8 +108,7 @@
                         </StackPanel>
 
                         <!-- Column 2 -->
-                        <StackPanel Grid.Column="2" Margin="10">
-
+                        <StackPanel Grid.Column="2" Margin="10,10,10,10">
                             <TextBlock Text="Account Holder"
                                        Foreground="White" 
                                        FontSize="25"/>
@@ -153,26 +142,12 @@
                                      FontSize="24"/>
                         </StackPanel>
 
-                        <!-- Column 3 --><!--
-                        <StackPanel Grid.Column="3" Margin="10">
-
-                            <TextBlock Text="Branch Code"
-                                       Foreground="White" 
-                                       FontSize="25"/>
-
-                            <TextBox x:Name="BranchCode"
-                                      Height="33" 
-                                      Width="320"
-                                      HorizontalAlignment="Left"
-                                      FontSize="24"/>
-                        </StackPanel>-->
-
                         <!-- Buttons -->
                         <StackPanel Grid.Column="4"
-                        Orientation="Horizontal"
-                        VerticalAlignment="Bottom"
-                        HorizontalAlignment="Right"
-                        Margin="0,0,10,10">
+                                    Orientation="Horizontal"
+                                    VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Right"
+                                    Margin="0,0,10,10">
 
                             <Button Content="Save" Width="233" Height="62" FontWeight="Bold" FontSize="35" Foreground="White" Background="#FFAE42" Click="SaveTransaction_Click">
                                 <Button.Template>
@@ -193,18 +168,29 @@
                                     </ControlTemplate>
                                 </Button.Template>
                             </Button>
+
+                            <!-- Deactivate button: disabled by default -->
+                            <Button x:Name="DeactivateButton" Content="Deactivate" Width="250" Height="64" FontWeight="Bold" FontSize="35" Foreground="White" Background="#B22222" Click="Deactivate_Click" Margin="10,0,0,0" IsEnabled="False">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
                         </StackPanel>
+
 
                     </Grid>
                 </Viewbox>
             </Border>
         </Grid>
 
-
         <!-- Search and table section -->
         <Grid Grid.Row="2"
-      Grid.RowSpan="2"
-      Margin="15,0,15,15">
+              Grid.RowSpan="2"
+              Margin="15,0,15,15">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -223,24 +209,14 @@
                      FontSize="15"
                      Padding="6"
                      VerticalContentAlignment="Center"
-                     Margin="0,21,0,10"
-                     Text="Search by Debtor name and click search"
+                     Margin="0,21,137,10"
+                     Text="Search by Debtor name..."  
                      Foreground="Gray"
                      GotFocus="SearchBox_GotFocus"
-                     LostFocus="SearchBox_LostFocus"/>
+                     LostFocus="SearchBox_LostFocus"
+                     TextChanged="SearchBox_TextChanged" Grid.ColumnSpan="2"/>
 
-
-            <!-- Search button -->
-            <Button Content="Search"
-            Grid.Row="0"
-            Grid.Column="1"
-            FontSize="14"
-            FontWeight="SemiBold"
-            Foreground="White"
-            Background="#0B5D3B"
-            Click="Search_Click" Margin="5,21,130,13"/>
-
-            <!-- Search button -->
+            <!-- Previous Debtors button -->
             <Button Content="Prev Debtors"
                     Grid.Row="0"
                     Grid.Column="1"
@@ -248,22 +224,21 @@
                     FontWeight="SemiBold"
                     Foreground="White"
                     Background="#0B5D3B"
-                    Click="Search_Click" Margin="135,21,0,13"/>
+                    Click="Prev_Click" Margin="135,21,0,0" Height="31" VerticalAlignment="Top"/>
 
             <!-- Table -->
-
             <DataGrid x:Name="DebtorsTable"
-          Grid.Row="1"
-          Grid.ColumnSpan="2"
-          AutoGenerateColumns="False"
-          CanUserAddRows="False"
-          CanUserDeleteRows="False"
-          HeadersVisibility="Column"
-          FontSize="14"
-          RowHeight="32"
-          Margin="0,6,0,30"
-          GridLinesVisibility="Horizontal"
-          SelectionChanged="DebtorsTable_SelectionChanged">
+                      Grid.Row="1"
+                      Grid.ColumnSpan="2"
+                      AutoGenerateColumns="False"
+                      CanUserAddRows="False"
+                      CanUserDeleteRows="False"
+                      HeadersVisibility="Column"
+                      FontSize="14"
+                      RowHeight="32"
+                      Margin="0,6,0,30"
+                      GridLinesVisibility="Horizontal"
+                      MouseDoubleClick="DebtorsTable_MouseDoubleClick">
 
                 <!-- HEADER STYLE -->
                 <DataGrid.ColumnHeaderStyle>
@@ -276,8 +251,6 @@
                         <Setter Property="Padding" Value="6"/>
                     </Style>
                 </DataGrid.ColumnHeaderStyle>
-
-
 
                 <!-- BODY STYLE -->
                 <DataGrid.CellStyle>
@@ -297,22 +270,14 @@
                     <DataGridTextColumn Header="Postal Address" Binding="{Binding PostalAddress}" Width="*" />
                     <DataGridTextColumn Header="Account Holder" Binding="{Binding AccountHolder}" Width="*" />
                     <DataGridTextColumn Header="Account Number" Binding="{Binding AcoountNumber}" Width="*" />
-                   
-                    <!--Add this if i have time-->  
-                    <!--<DataGridTextColumn Header="Branch Code" Binding="{Binding BranchCode}" Width="*" />-->
-                    
                     <DataGridTextColumn Header="Branch" Binding="{Binding Branch}" Width="*" />
-
                     <DataGridTextColumn Header="Balance" Binding="{Binding Balance}" Width="*" IsReadOnly="True" />
                     <DataGridTextColumn Header="Sales YTD" Binding="{Binding SalesYearToDate}" Width="*" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Cost YTD" Binding="{Binding CostYearToDate}" Width="*" IsReadOnly="True"/>
                 </DataGrid.Columns>
-       </DataGrid>
-
+            </DataGrid>
 
         </Grid>
-
-
 
     </Grid>
 </Window>

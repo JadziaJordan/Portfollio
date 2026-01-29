@@ -147,6 +147,8 @@ C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\obj\
 C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\obj\Debug\net10.0-windows\InvoiceEnquiry.g.cs
 C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\obj\Debug\net10.0-windows\MainWindow.g.cs
 C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\obj\Debug\net10.0-windows\NewInvoice.g.cs
+C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\obj\Debug\net10.0-windows\Prev_Debtor.g.cs
+C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\obj\Debug\net10.0-windows\Prev_Stock.g.cs
 C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\obj\Debug\net10.0-windows\StockAdjustment.g.cs
 C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\obj\Debug\net10.0-windows\StockEnquiry.g.cs
 C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\obj\Debug\net10.0-windows\StockMaster.g.cs
@@ -158,6 +160,8 @@ C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\obj\
 C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\obj\Debug\net10.0-windows\DebtorsMasters.baml
 C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\obj\Debug\net10.0-windows\InvoiceEnquiry.baml
 C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\obj\Debug\net10.0-windows\NewInvoice.baml
+C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\obj\Debug\net10.0-windows\Prev_Debtor.baml
+C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\obj\Debug\net10.0-windows\Prev_Stock.baml
 C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\obj\Debug\net10.0-windows\StockAdjustment.baml
 C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\obj\Debug\net10.0-windows\StockEnquiry.baml
 C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\obj\Debug\net10.0-windows\StockMaster.baml

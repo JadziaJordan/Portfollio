@@ -12,6 +12,7 @@
     <None Remove="appsettings.json" />
     <None Remove="Images\DM_Background.png" />
     <None Remove="Images\MenuPage.png" />
+    <None Remove="Images\PS_background.png" />
     <None Remove="Images\SM_Background.png" />
   </ItemGroup>
 
@@ -44,6 +45,10 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\SM_Background.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\PS_background.png" />
   </ItemGroup>
 
   <ItemGroup>

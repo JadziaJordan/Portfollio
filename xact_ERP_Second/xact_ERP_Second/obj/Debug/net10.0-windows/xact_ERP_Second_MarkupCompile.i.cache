@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NET10_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\Jadzia Jordan\OneDrive\Desktop\ERP\xact_ERP_Second\xact_ERP_Second\App.xaml
-81055342197
+10749627371
 11413424753
-16674584010
+18757963586
 241-1998405802
-DebtorsEnquiry.xaml;DebtorsMasters.xaml;InvoiceEnquiry.xaml;MainWindow.xaml;NewInvoice.xaml;StockAdjustment.xaml;StockEnquiry.xaml;StockMaster.xaml;
+DebtorsEnquiry.xaml;DebtorsMasters.xaml;InvoiceEnquiry.xaml;MainWindow.xaml;NewInvoice.xaml;Prev_Debtor.xaml;Prev_Stock.xaml;StockAdjustment.xaml;StockEnquiry.xaml;StockMaster.xaml;
 
 True
 

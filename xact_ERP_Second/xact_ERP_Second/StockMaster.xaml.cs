@@ -1,149 +1,99 @@
-﻿using System.Windows;
+﻿using Microsoft.Data.SqlClient;
+using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Windows;
 using System.Windows.Controls;
-using xact_ERP_Second.Data;
+using System.Windows.Input;
 using System.Windows.Media;
-
+using xact_ERP_Second.Data;
 using xact_ERP_Second.Models;
-using Microsoft.Data.SqlClient;
-
 
 namespace xact_ERP_Second
 {
-   
     public partial class StockMaster : Window
     {
-
         private string _editingStockCode = null;
-        //confirm edit 
         private bool _isEditConfirmed = false;
-
-        private const string SearchPlaceholder = "Search by debtor name...";
-
+        private const string SearchPlaceholder = "Search by stock name...";
 
         public StockMaster()
         {
             InitializeComponent();
             SetSearchPlaceholder();
-        }
-
-
-        //calls load function and sets placeholder
-        private void SetSearchPlaceholder()
-        {
-            SearchBox.Text = SearchPlaceholder;
-            SearchBox.Foreground = Brushes.Gray;
             LoadStock();
         }
 
-
-        //Load and Search Feature 
+        // ================= LOAD + SEARCH =================
         private void LoadStock(string searchName = "")
         {
+            if (StockTable == null) return;
+
             try
             {
                 var list = new List<Stock>();
 
-                using (var conn = Database.GetConnection())
+                using var conn = Database.GetConnection();
+                conn.Open();
+
+                // Always load only active stock
+                string sql =
+                    "SELECT StockCode, StockName, StockDescription, Brand, Category, Location, " +
+                    "Cost, SellingPrice, TotalPurchasedExclVat, TotalSalesExclVat, QntyPurchased, QntySold, StockOnHand, Status " +
+                    "FROM Stock_Masters " +
+                    "WHERE Status = 'Active'";
+
+                if (!string.IsNullOrWhiteSpace(searchName) && searchName != SearchPlaceholder)
+                    sql += " AND StockName LIKE @search";
+
+                using var cmd = new SqlCommand(sql, conn);
+
+                if (!string.IsNullOrWhiteSpace(searchName) && searchName != SearchPlaceholder)
+                    cmd.Parameters.AddWithValue("@search", $"%{searchName}%");
+
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    conn.Open();
-
-                    string sql =
-                        "Select StockCode, StockName, StockDescription, Brand, Category, " +
-                        "Location, Cost, SellingPrice, TotalPurchasedExclVat, TotalSalesExclVat, " +
-                        "QntyPurchased, QntySold, StockOnHand " +
-                        "FROM Stock_Masters"
-                        ;
-
-                    //checks id where clause is neede
-                    if (!string.IsNullOrEmpty(searchName))
-                        sql += " WHERE StockName LIKE @search";
-
-                    using var cmd = new SqlCommand(sql, conn);   // this is what pushes the command through 
-
-                    if (!string.IsNullOrWhiteSpace(searchName))
-                        cmd.Parameters.AddWithValue("@search", $"%{searchName}%");
-
-                    using var reader = cmd.ExecuteReader();
-
-                    //what the table recieves put inthe rows 
-                    while (reader.Read())
+                    list.Add(new Stock
                     {
-                        list.Add(new Stock
-                        {
-                            StockCode = reader["StockCode"].ToString(),
-                            StockName = reader["StockName"].ToString(),
-
-                            StockDescription = reader["StockDescription"].ToString(), //not showing
-
-                            Brand = reader["Brand"].ToString(),
-                            Category = reader["Category"].ToString(),
-                            Location = reader["Location"].ToString(),
-
-                            Cost = reader["Cost"] != DBNull.Value
-                                ? Convert.ToDecimal(reader["Cost"])
-                                : 0m,  //assign it 0 if null
-
-                            SellingPrice = reader["SellingPrice"] != DBNull.Value
-                                ? Convert.ToDecimal(reader["SellingPrice"])
-                                : 0m,
-
-                            TotalPurchasedExclVat = reader["TotalPurchasedExclVat"] != DBNull.Value
-                                ? Convert.ToDecimal(reader["TotalPurchasedExclVat"])
-                                : 0m,
-
-                            TotalSalesExclVat = reader["TotalSalesExclVat"] != DBNull.Value
-                                ? Convert.ToDecimal(reader["TotalSalesExclVat"])
-                                : 0m,
-
-                            QntyPurchased = reader["QntyPurchased"] != DBNull.Value
-                                ? Convert.ToInt32(reader["QntyPurchased"])
-                                : 0,
-
-                            QntySold = reader["QntySold"] != DBNull.Value
-                                ? Convert.ToInt32(reader["QntySold"])
-                                : 0,
-
-                            StockOnHand = reader["StockOnHand"] != DBNull.Value
-                                ? Convert.ToInt32(reader["StockOnHand"])
-                                : 0,
-
-                        });
-                    }
-
-
+                        StockCode = reader["StockCode"].ToString(),
+                        StockName = reader["StockName"].ToString(),
+                        StockDescription = reader["StockDescription"].ToString(),
+                        Brand = reader["Brand"].ToString(),
+                        Category = reader["Category"].ToString(),
+                        Location = reader["Location"].ToString(),
+                        Cost = reader["Cost"] != DBNull.Value ? Convert.ToDecimal(reader["Cost"]) : 0m,
+                        SellingPrice = reader["SellingPrice"] != DBNull.Value ? Convert.ToDecimal(reader["SellingPrice"]) : 0m,
+                        TotalPurchasedExclVat = reader["TotalPurchasedExclVat"] != DBNull.Value ? Convert.ToDecimal(reader["TotalPurchasedExclVat"]) : 0m,
+                        TotalSalesExclVat = reader["TotalSalesExclVat"] != DBNull.Value ? Convert.ToDecimal(reader["TotalSalesExclVat"]) : 0m,
+                        QntyPurchased = reader["QntyPurchased"] != DBNull.Value ? Convert.ToInt32(reader["QntyPurchased"]) : 0,
+                        QntySold = reader["QntySold"] != DBNull.Value ? Convert.ToInt32(reader["QntySold"]) : 0,
+                        StockOnHand = reader["StockOnHand"] != DBNull.Value ? Convert.ToInt32(reader["StockOnHand"]) : 0,
+                        Status = reader["Status"].ToString()
+                    });
                 }
 
-                //Bind List
                 StockTable.ItemsSource = list;
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading debtors: " + ex.Message);
+                MessageBox.Show("Error loading stock: " + ex.Message);
             }
-
         }
 
-
-
-
-        //this fills the input fields for editing  
-        private void StockTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        // ================= ROW CLICK =================
+        private void StockTable_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //assig the value
-            if (StockTable.SelectedItems is not Stock s)
-                return;
+            if (StockTable.SelectedItem is not Stock s) return;
 
             var result = MessageBox.Show(
-                 $"Are you sure you want to edit this Item? '{s.StockName}'?",
+                $"Are you sure you want to edit '{s.StockName}'?",
                 "Confirm Edit",
                 MessageBoxButton.YesNo,
-                MessageBoxImage.Question
-                );
+                MessageBoxImage.Question);
 
             if (result != MessageBoxResult.Yes)
             {
-                // User cancelled → deselect row
                 StockTable.SelectedItem = null;
                 return;
             }
@@ -151,223 +101,260 @@ namespace xact_ERP_Second
             _editingStockCode = s.StockCode;
             _isEditConfirmed = true;
 
-             StockName.Text = s.StockName;
-             StockBrand.Text = s.Brand;
-             StockCategory.Text = s.Category;
-             StockLoctaion.Text = s.Location;
-             StockCost.Text = s.Cost.ToString();
-             StockPrice.Text = s.SellingPrice.ToString();
-             StockDesc.Text = s.StockDescription;
+            StockName.Text = s.StockName;
+            StockBrand.Text = s.Brand;
+            StockCategory.Text = s.Category;
+            StockLoctaion.Text = s.Location;
 
+            // Add permanent R: when loading
+            StockCost.Text = $"R:{s.Cost:F2}";
+            StockPrice.Text = $"R:{s.SellingPrice:F2}";
 
+            StockDesc.Text = s.StockDescription;
         }
 
-
-        //Clear button clears searxh bar aswell
+        // ================= CLEAR =================
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             StockName.Text = "";
             StockBrand.Text = "";
             StockCategory.Text = "";
             StockLoctaion.Text = "";
-            StockCost.Text = ("0.00");
-            StockPrice.Text = ("0.00");
+            StockCost.Text = "R:0.00";
+            StockPrice.Text = "R:0.00";
             StockDesc.Text = "";
 
             _editingStockCode = null;
             _isEditConfirmed = false;
-                        
+
             StockTable.SelectedItem = null;
 
-            // Reset search placeholder
             SetSearchPlaceholder();
+            LoadStock();
         }
 
-
+        // ================= SAVE =================
         private void SaveStock_Click(object sender, RoutedEventArgs e)
         {
-            //check if text is filed 
-
-            if (
-                string.IsNullOrWhiteSpace(StockName.Text) ||
+            if (string.IsNullOrWhiteSpace(StockName.Text) ||
                 string.IsNullOrWhiteSpace(StockBrand.Text) ||
                 string.IsNullOrWhiteSpace(StockCategory.Text) ||
                 string.IsNullOrWhiteSpace(StockLoctaion.Text) ||
-                string.IsNullOrWhiteSpace(StockCost.Text = ("0.00")) ||
-                string.IsNullOrWhiteSpace(StockPrice.Text = ("0.00")) ||
-                string.IsNullOrWhiteSpace(StockDesc.Text)
-
-                )
+                string.IsNullOrWhiteSpace(StockCost.Text.Replace("R:", "").Trim()) ||
+                string.IsNullOrWhiteSpace(StockPrice.Text.Replace("R:", "").Trim()))
             {
                 MessageBox.Show("Please fill in all required fields!");
                 return;
             }
 
-        
-            // Validate Cost (decimal)
-            if (!decimal.TryParse(StockCost.Text.Trim(), out decimal cost))
+            if (!decimal.TryParse(StockCost.Text.Replace("R:", "").Trim(), out decimal cost))
             {
-                MessageBox.Show("Cost must be a valid decimal number.");
+                MessageBox.Show("Cost must be numeric.");
                 return;
             }
 
-            // Validate Selling Price (decimal)
-            if (!decimal.TryParse(StockPrice.Text.Trim(), out decimal sellingPrice))
+            // Prevent 0 cost
+            if (cost <= 0)
             {
-                MessageBox.Show("Selling Price must be a valid decimal number.");
+                MessageBox.Show("Cost cannot be zero or negative.");
                 return;
             }
 
-            //if passes all validation 
+            if (!decimal.TryParse(StockPrice.Text.Replace("R:", "").Trim(), out decimal sellingPrice))
+            {
+                MessageBox.Show("Selling Price must be numeric.");
+                return;
+            }
+
+            // Prevent 0 selling price
+            if (sellingPrice <= 0)
+            {
+                MessageBox.Show("Selling Price cannot be zero or negative.");
+                return;
+            }
+
             try
             {
-                using (var conn = Database.GetConnection())
+                using var conn = Database.GetConnection();
+                conn.Open();
+
+                // ===== UPDATE =====
+                if (_editingStockCode != null && _isEditConfirmed)
                 {
-                    conn.Open();
+                    string updateSql =
+                        "UPDATE Stock_Masters SET " +
+                        "StockName=@StockName, StockDescription=@StockDescription, Brand=@Brand, " +
+                        "Category=@Category, Location=@Location, Cost=@Cost, SellingPrice=@SellingPrice, Status='Active' " +
+                        "WHERE StockCode=@StockCode";
 
+                    using var cmd = new SqlCommand(updateSql, conn);
+                    cmd.Parameters.AddWithValue("@StockCode", _editingStockCode);
+                    cmd.Parameters.AddWithValue("@StockName", StockName.Text.Trim());
+                    cmd.Parameters.AddWithValue("@StockDescription", StockDesc.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Brand", StockBrand.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Category", StockCategory.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Location", StockLoctaion.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Cost", cost);
+                    cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
+                    cmd.ExecuteNonQuery();
 
-                    //update
-                    if (_editingStockCode != null && _isEditConfirmed)
+                    MessageBox.Show("Stock updated successfully!");
+                }
+                // ===== INSERT =====
+                else
+                {
+                    string getMax = "SELECT TOP 1 StockCode FROM Stock_Masters ORDER BY StockCode DESC";
+                    string nextCode = "STK01";
+
+                    using var cmdMax = new SqlCommand(getMax, conn);
+                    var result = cmdMax.ExecuteScalar();
+                    if (result != null)
                     {
-                        var confirm = MessageBox.Show(
-                            "Save changes to this debtor?",
-                            "Confirm Update",
-                            MessageBoxButton.YesNo,
-                            MessageBoxImage.Warning);
-
-                        if (confirm != MessageBoxResult.Yes)
-                            return;
-
-
-
-
-                        string updateSql =
-                            "UPDATE Stock_Masters SET " +
-                            "StockName=@StockName, StockDescription=@StockDescription, Brand=@Brand, " +
-                            "Category=@Category, Location=@Location, Cost=@Cost, SellingPrice=@SellingPrice, " +
-                            "WHERE StockCode=@StockCode";
-
-                        using var cmd = new SqlCommand(updateSql, conn);
-
-                        cmd.Parameters.AddWithValue("@StockCode", _editingStockCode);
-                        cmd.Parameters.AddWithValue("@StockName", StockName.Text.Trim());
-                        cmd.Parameters.AddWithValue("@StockDescription", StockDesc.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Brand", StockBrand.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Category", StockCategory.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Location", StockLoctaion.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Cost", cost);
-                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
-
-                        cmd.ExecuteNonQuery(); //
-
-                        MessageBox.Show("Stock has been updated sussecfully");
-
-                    }
-                    else //this is the insert mode 
-                    {
-                        string getMax =
-                           "SELECT TOP 1 StockCode FROM Stock_Masters ORDER BY StockCode DESC";
-
-                        string nextCode = "STK01";
-
-                        using (var cmdMax = new SqlCommand(getMax, conn))
-                        {
-                            var result = cmdMax.ExecuteScalar();
-                            if (result != null)
-                            {
-                                string lastCode = result.ToString();
-                                int number = int.Parse(lastCode.Substring(3)) + 1;
-                                nextCode = "AC" + number.ToString("D2");
-                            }
-                        }//closed connection automatical
-
-                        //  string sql =
-                        //"Select StockCode, StockName, StockDescription, Brand, Category, " +
-                        //"Location, Cost, SellingPrice, TotalPurchasedExclVat, TotalSalesExclVat, " +
-                        //"QntyPurchased, QntySold, StockOnHand " +
-                        //"FROM Stock_Masters"
-                        //;
-
-                        string insertSql =
-                            "INSERT INTO StockMasters" +
-                            "StockCode, StockName, StockDescription, Brand, Category, " +
-                            "Location, Cost, SellingPrice, TotalPurchasedExclVat, TotalSalesExclVat, " +
-                            "QntyPurchased, QntySold, StockOnHand " +
-                            "VALUES (@StockCode, @StockName, @StockDescription, @Brand, @Category, " +
-                            "@Location, @Cost, @SellingPrice, @TotalPurchasedExclVat, @TotalSalesExclVat" +
-                            "@QntyPurchased, @QntySold, @StockOnHand";
-
-
-                        using var cmd = new SqlCommand(insertSql, conn);
-
-                        cmd.Parameters.AddWithValue("StockCode", nextCode);
-                        cmd.Parameters.AddWithValue("@StockName", StockName.Text.Trim());
-                        cmd.Parameters.AddWithValue("@StockDescription", StockDesc.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Brand", StockBrand.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Category", StockCategory.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Location", StockLoctaion.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Cost", cost);
-                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
-                        cmd.Parameters.AddWithValue("@TotalPurchasedExclVat", 0m);
-                        cmd.Parameters.AddWithValue("@TotalSalesExclVat", 0m);
-                        cmd.Parameters.AddWithValue("@Location", StockLoctaion.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Cost", cost);
-                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
-
+                        string lastCode = result.ToString();
+                        int number = int.Parse(lastCode.Substring(3)) + 1;
+                        nextCode = "STK" + number.ToString("D2");
                     }
 
+                    string insertSql =
+                        "INSERT INTO Stock_Masters " +
+                        "(StockCode, StockName, StockDescription, Brand, Category, Location, Cost, SellingPrice, " +
+                        "TotalPurchasedExclVat, TotalSalesExclVat, QntyPurchased, QntySold, StockOnHand, Status) " +
+                        "VALUES (@StockCode, @StockName, @StockDescription, @Brand, @Category, @Location, @Cost, @SellingPrice, " +
+                        "@TotalPurchasedExclVat, @TotalSalesExclVat, @QntyPurchased, @QntySold, @StockOnHand, 'Active')";
 
+                    using var cmd = new SqlCommand(insertSql, conn);
+
+                    cmd.Parameters.AddWithValue("@StockCode", nextCode);
+                    cmd.Parameters.AddWithValue("@StockName", StockName.Text.Trim());
+                    cmd.Parameters.AddWithValue("@StockDescription", StockDesc.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Brand", StockBrand.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Category", StockCategory.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Location", StockLoctaion.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Cost", cost);
+                    cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
+
+                    // Defaults
+                    cmd.Parameters.AddWithValue("@TotalPurchasedExclVat", 0m);
+                    cmd.Parameters.AddWithValue("@TotalSalesExclVat", 0m);
+                    cmd.Parameters.AddWithValue("@QntyPurchased", 0);
+                    cmd.Parameters.AddWithValue("@QntySold", 0);
+                    cmd.Parameters.AddWithValue("@StockOnHand", 0);
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Stock added successfully!");
                 }
 
+                Cancel_Click(null, null);
+                LoadStock();
             }
-            catch
+            catch (Exception ex)
             {
-               
-
+                MessageBox.Show("Error saving stock: " + ex.Message);
             }
-
-
-
-
-        }  
-
-
-        private void Search_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        // ================= DELETE/DEACTIVATE =================
+        private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            if (_editingStockCode == null) return;
 
+            var confirm = MessageBox.Show(
+                "Are you sure you want to deactivate this stock?",
+                "Confirm Deactivate",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning);
+
+            if (confirm != MessageBoxResult.Yes) return;
+
+            try
+            {
+                using var conn = Database.GetConnection();
+                conn.Open();
+
+                string sql = "UPDATE Stock_Masters SET Status='Inactive' WHERE StockCode=@StockCode";
+                using var cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@StockCode", _editingStockCode);
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Stock deactivated successfully!");
+                Cancel_Click(null, null);
+                LoadStock();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deactivating stock: " + ex.Message);
+            }
         }
 
-                 
-
-        private void SearchBoxStock_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        // User clicks inside → remove placeholder
-        private void SearchBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-          
-        }
-
-        // User leaves empty → restore placeholder
-        private void SearchBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-          
-        }
-
-      
-
+        // ================= SEARCH =================
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (StockTable == null) return;
 
+            if (SearchBox.Text == SearchPlaceholder || string.IsNullOrWhiteSpace(SearchBox.Text))
+                LoadStock();
+            else
+                LoadStock(SearchBox.Text.Trim());
         }
 
-       
+        private void SetSearchPlaceholder()
+        {
+            SearchBox.Text = SearchPlaceholder;
+            SearchBox.Foreground = Brushes.Gray;
+        }
+
+        private void SearchBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (SearchBox.Text == SearchPlaceholder)
+            {
+                SearchBox.Text = "";
+                SearchBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void SearchBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(SearchBox.Text))
+                SetSearchPlaceholder();
+        }
+
+        private void Deleted_Click(object sender, RoutedEventArgs e)
+        {
+            Prev_Stock prevWindow = new Prev_Stock();
+            prevWindow.ShowDialog();
+        }
+
+        // ================= PRICE BOXES: PERMANENT R: =================
+        private void Price_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+
+            // Prevent deleting the "R:" part
+            if ((tb.SelectionStart <= 2 && (e.Key == Key.Back || e.Key == Key.Delete)) ||
+                (tb.SelectionStart < 2 && e.Key == Key.Left))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Price_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            // Only allow numbers and dot after R:
+            TextBox tb = sender as TextBox;
+            if (!Regex.IsMatch(e.Text, @"[0-9.]"))
+                e.Handled = true;
+        }
+
+        private void Price_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            // Ensure "R:" is always at start
+            if (!tb.Text.StartsWith("R:"))
+            {
+                int sel = tb.SelectionStart;
+                tb.Text = "R:" + tb.Text.Replace("R:", "");
+                tb.SelectionStart = sel + 2;
+            }
+        }
     }
 }

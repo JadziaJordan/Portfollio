@@ -10,7 +10,6 @@
         Height="526" 
         Width="840">
 
-
     <Grid Margin="0,0,0,0">
 
         <!--Background-->
@@ -29,7 +28,6 @@
             <RowDefinition Height="293*" />
         </Grid.RowDefinitions>
 
-
         <!--Green Box-->
         <Grid Margin="15,10,15,0" Grid.Row="1">
 
@@ -38,7 +36,6 @@
                   CornerRadius="9"
                   Padding="20"
                   Margin="15,10,15,0">
-
 
                 <Viewbox Stretch="Uniform"
                          Margin="-16,-10,0,-10" 
@@ -50,12 +47,12 @@
                             <ColumnDefinition Width="500"/>
                             <ColumnDefinition Width="500"/>
                             <ColumnDefinition Width="500"/>
-                            <ColumnDefinition Width="500"/>
-                            <ColumnDefinition Width="500"/>
+                            <ColumnDefinition Width="411"/>
+                            <ColumnDefinition Width="589"/>
                         </Grid.ColumnDefinitions>
 
                         <!--Column 0-->
-                        <StackPanel Grid.Column="0" Margin="10">
+                        <StackPanel Grid.Column="0" Margin="10,10,10,10">
                             <TextBlock Text="STOCK"
                                        Foreground="White"
                                        FontWeight="ExtraBold"
@@ -71,9 +68,9 @@
                                      Height="33"
                                      Width="325"
                                      HorizontalAlignment="Left"
-                                     FontSize="240"/>
+                                     FontSize="24"/>
 
-                            <TextBlock Text="Click a Item to Edit"
+                            <TextBlock Text="Double Click an Item to Edit"
                                        Foreground="White"
                                        FontSize="25"
                                        TextAlignment="Left"
@@ -83,7 +80,7 @@
                         </StackPanel>
 
                         <!--Column 1-->
-                        <StackPanel Grid.Column="1" Margin="10">
+                        <StackPanel Grid.Column="1" Margin="10,10,10,10">
 
                             <TextBlock Text="Brand Manufacturer"
                                        Foreground="White"
@@ -104,11 +101,11 @@
                                      FontSize="24"
                                      Width="325"
                                      Height="33"
-                                    HorizontalAlignment="Left"/>
+                                     HorizontalAlignment="Left"/>
 
                             <TextBlock Text="Location"
-                                     Foreground="White"
-                                     FontSize="24"/>
+                                       Foreground="White"
+                                       FontSize="24"/>
 
                             <TextBox x:Name="StockLoctaion"
                                      FontSize="24"
@@ -117,36 +114,43 @@
                                      HorizontalAlignment="Left"/>
                         </StackPanel>
 
-
                         <!--Column 2-->
-                        <StackPanel Grid.Column="2" Margin="10">
-
+                        <StackPanel Grid.Column="2" Margin="10,10,10,10">
 
                             <TextBlock Text="Cost Price"
                                        Foreground="White"
                                        FontSize="25"/>
 
+                            <!-- Cost Price with permanent R: -->
                             <TextBox x:Name="StockCost"
                                      Height="33"
                                      Width="325"
                                      FontSize="24"
-                                     HorizontalAlignment="Left"/>
+                                     HorizontalAlignment="Left"
+                                     Text="R:"
+                                     PreviewKeyDown="Price_PreviewKeyDown"
+                                     PreviewTextInput="Price_PreviewTextInput"
+                                     TextChanged="Price_TextChanged"/>
 
                             <TextBlock Text="Selling Price"
                                        FontSize="25"
                                        Foreground="White"
                                        HorizontalAlignment="Left"/>
 
+                            <!-- Selling Price with permanent R: -->
                             <TextBox x:Name="StockPrice"
                                      FontSize="24"
                                      Width="325"
                                      Height="33"
-                                    HorizontalAlignment="Left"/>
-
+                                     HorizontalAlignment="Left"
+                                     Text="R:"
+                                     PreviewKeyDown="Price_PreviewKeyDown"
+                                     PreviewTextInput="Price_PreviewTextInput"
+                                     TextChanged="Price_TextChanged"/>
                         </StackPanel>
 
                         <!--Column 3-->
-                        <StackPanel Grid.Column="3" Margin="10">
+                        <StackPanel Grid.Column="3" Margin="10,10,10,10">
 
                             <TextBlock Text="Description"
                                        FontSize="25"
@@ -160,39 +164,33 @@
                                      HorizontalAlignment="Left"/>
                         </StackPanel>
 
-                        <!--Column 4-->
-                        <StackPanel Grid.Column="4"
+                        <!--Column 4 Buttons-->
+                        <StackPanel Grid.Column="3"
                                     Orientation="Horizontal"
-                                    VerticalAlignment="Bottom"
+                                    VerticalAlignment="Top"
                                     HorizontalAlignment="Right"
-                                    Margin="0,0,10,10">
+                                    Margin="0,176,-88,0" Height="64" Width="746" Grid.ColumnSpan="2">
 
                             <Button Content="Save" 
-                                    Width="233" Height="62"
+                                    Width="255" Height="62"
                                     FontWeight="Bold" 
                                     FontSize="35" 
                                     Foreground="White"
                                     Background="#FFAE42"
                                     Click="SaveStock_Click">
 
-                                <!--Save Button-->
+                                <!--Save Button Template-->
                                 <Button.Template>
-
                                     <ControlTemplate TargetType="{x:Type Button}">
-
                                         <Border Background="{TemplateBinding Background}" 
                                                 CornerRadius="10"
                                                 BorderBrush="{TemplateBinding BorderBrush}"
                                                 BorderThickness="{TemplateBinding BorderThickness}">
-
                                             <ContentPresenter HorizontalAlignment="Center" 
                                                               VerticalAlignment="Center"/>
                                         </Border>
-
                                     </ControlTemplate>
-
                                 </Button.Template>
-
 
                             </Button>
 
@@ -205,10 +203,9 @@
                                     Background="#023020" 
                                     Click="Cancel_Click" Margin="10,0,0,0">
 
+                                <!--Clear Button Template-->
                                 <Button.Template>
-
                                     <ControlTemplate TargetType="{x:Type Button}">
-
                                         <Border Background="{TemplateBinding Background}"
                                                 CornerRadius="10" 
                                                 BorderBrush="{TemplateBinding BorderBrush}"
@@ -216,34 +213,47 @@
                                             <ContentPresenter HorizontalAlignment="Center"
                                                               VerticalAlignment="Center"/>
                                         </Border>
-
                                     </ControlTemplate>
-
                                 </Button.Template>
 
                             </Button>
+
+                            <Button Content="Delete"
+                                    Width="241" 
+                                    Height="64" 
+                                    FontWeight="Bold" 
+                                    FontSize="35" 
+                                    Foreground="White" 
+                                    Background="#B22222" 
+                                    Click="Delete_Click" Margin="10,0,0,0">
+
+                                <!--Delete Button Template-->
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}"
+                                                CornerRadius="10" 
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}">
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+
+                            </Button>
+
                         </StackPanel>
-
-
-
-
-
-
-
-
-
 
                     </Grid>
                 </Viewbox>
-
 
             </Border>
 
         </Grid>
 
-
+        <!--Grid Row 2: Table and searchbar-->
         <Grid Grid.Row="2"
-              Grid.RowSpan="2"
+               Grid.RowSpan="2"
                Margin="15,0,15,15">
 
             <!--Table and and searchbar-->
@@ -257,55 +267,43 @@
                 <ColumnDefinition Width="260"/>
             </Grid.ColumnDefinitions>
 
-
             <!-- Search box -->
-           
-               <TextBox x:Name="SearchBox"
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        FontSize="15"
-                        Padding="6"
-                        VerticalContentAlignment="Center"
-                        Margin="0,21,0,10"
-                        Foreground="Gray"
-                        GotFocus="SearchBox_GotFocus"
-                        LostFocus="SearchBox_LostFocus" TextChanged="SearchBox_TextChanged"/>
+            <TextBox x:Name="SearchBox"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     FontSize="15"
+                     Padding="6"
+                     VerticalContentAlignment="Center"
+                     Margin="0,21,135,10"
+                     Foreground="Gray"
+                     GotFocus="SearchBox_GotFocus"
+                     LostFocus="SearchBox_LostFocus"
+                     TextChanged="SearchBox_TextChanged"
+                     Grid.ColumnSpan="2" />
 
+            <!-- Deleted Stock button -->
+            <Button Content="Deleted Stock"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    FontSize="14"
+                    FontWeight="SemiBold"
+                    Foreground="White"
+                    Background="#0B5D3B"
+                    Click="Deleted_Click" Margin="135,21,0,13"/>
 
-                <!-- Search button -->
-                <Button Content="Search"
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        FontSize="14"
-                        FontWeight="SemiBold"
-                        Foreground="White"
-                        Background="#0B5D3B"
-                        Click="Search_Click" Margin="5,21,130,13"/>
-
-                 <!-- Search button -->
-                <Button Content="Prev Debtors"
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        FontSize="14"
-                        FontWeight="SemiBold"
-                        Foreground="White"
-                        Background="#0B5D3B"
-                        Click="Search_Click" Margin="135,21,0,13"/>
-
-
-
+            <!-- Stock Table -->
             <DataGrid x:Name="StockTable"
-                           Grid.Row="1"
-                           Grid.ColumnSpan="2"
-                           AutoGenerateColumns="False"
-                           CanUserAddRows="False"
-                           CanUserDeleteRows="False"
-                           HeadersVisibility="Column"
-                           FontSize="13"
-                           RowHeight="32"
-                           Margin="0,6,0,30"
-                           GridLinesVisibility="Horizontal"
-                           SelectionChanged="StockTable_SelectionChanged">
+                      Grid.Row="1"
+                      Grid.ColumnSpan="2"
+                      AutoGenerateColumns="False"
+                      CanUserAddRows="False"
+                      CanUserDeleteRows="False"
+                      HeadersVisibility="Column"
+                      FontSize="13"
+                      RowHeight="32"
+                      Margin="0,6,0,30"
+                      GridLinesVisibility="Horizontal"
+                      MouseDoubleClick="StockTable_MouseDoubleClick">
 
                 <!-- HEADER STYLE -->
                 <DataGrid.ColumnHeaderStyle>
@@ -343,8 +341,7 @@
                     <DataGridTextColumn Header="Qauntity Purchased" Binding="{Binding QntyPurchased}" Width="*" />
                     <DataGridTextColumn Header="Qauntity Sold" Binding="{Binding QntySold}" Width="*" />
                     <DataGridTextColumn Header="Stock on Hand" Binding="{Binding StockOnHand}" Width="*" />
-                    </DataGrid.Columns>
-
+                </DataGrid.Columns>
 
             </DataGrid>
 
